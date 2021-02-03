@@ -8,7 +8,7 @@ var littleMermaid = prompt('How many days are you renting little mermaid?');
 var brotherbear = prompt('How many days are you renting brother bear?');
 var hercules = prompt('How many days are you renting hercules?');
 var price = prompt('What is the price for one movie per day?');
-var totalp = price * (littleMermaid + brotherbear + hercules)
+var totalp = price * (littleMermaid + brotherbear + hercules);
 alert('You will have to pay: ' + totalp)
 
 //3.2
@@ -21,15 +21,17 @@ alert('You have earned:$ ' + total );
 //3.3
 var hasClassAtEight = confirm('Do you have class at Eight oclock?');
 var isClassFull = confirm('is class full?');
-!hasClassAtEight && !isClassFull
-alert('You can enroll!')
+
+alert('You can enroll! Is a ' + (!hasClassAtEight && !isClassFull) + ' statement.')
+
 
 //3.4
 var member = confirm('Are you a member?');
-var items = prompt('How many items have you bought?');
+var items = confirm('Do you have more than 2 items in your cart?');
 var isExpired = confirm('is the offer expired?');
-member && items && isExpired
-alert('Offer can be applied!')
+var hasEnoughItems = (member || items)
+var canUseOffer = hasEnoughItems && isExpired;
+alert('Offer can be applied! Is a ' + canUseOffer + 'statement.')
 
 
 
