@@ -22,7 +22,7 @@ function analyzeColor(color) {
     } else {
         alert("I don't know anything by that color.")
     }
-} console.log(analyzeColor(color))
+} console.log(analyzeColor('red'))
 
 //  * Example:
 //  *  > analyzeColor('blue') // returns "blue is the color of the sky"
@@ -52,21 +52,21 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 //  * TODO:
 //  * Refactor your above function to use a switch-case statement
 //  */
-    function analyzeColorSwitch(randomColor) {
-        switch (true) {
-            case (randomColor === 'red') :
+    function analyzeColorSwitch(color1) {
+        switch (color1) {
+            case ((color1) === 'red') :
                 console.log('apples are red.')
                 break;
-            case (randomColor === 'blue') :
+            case ((color1) === 'blue') :
                 console.log('the sky is blue.')
                 break;
-            case (randomColor === 'green') :
+            case ((color1) === 'green') :
                 console.log('the grass is green')
                 break;
-            case (randomColor === 'yellow') :
+            case ((color1) === 'yellow') :
                 console.log('bananas are yellow.')
                 break;
-            case (randomColor === 'orange') :
+            case ((color1) === 'orange') :
                 console.log('oranges are orange.')
                 break;
             default :
@@ -100,18 +100,23 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 
 
     function calculateTotal(lucky, total) {
-        if (lucky === 0) {
-            alert(total)
-        } else if (lucky === 1) {
-            alert(total-(total*.10))
-        } else if (lucky === 2) {
-            alert(total-(total*.25))
-        } else if (lucky === 3) {
-            alert(total-(total*.35))
-        } else if (lucky === 4) {
-            alert(total-(total*.50))
-        } else if (lucky === 5) {
-            alert(0)
+        switch (lucky){
+            case 0 :
+                return total;
+            case 1 :
+                lucky = 1;
+                return (total * .1);
+            case 2 :
+                lucky = 2;
+                return (total * .25);
+            case 3 :
+                lucky = 3;
+                return (total * .35);
+            case 4 :
+                lucky = 4;
+                return (total * .5);
+            case 5 :
+                return 0;
         }
     }
 
@@ -133,52 +138,47 @@ var randomColor = colors[Math.floor(Math.random() * colors.length)];
 //  */
 // // Generate a random number between 0 and 6
 var luckyNumber = Math.floor(Math.random() * 6);
-var totalBill = prompt('What is the total of your bill?');
-
+var totalBill = Number(prompt('What is the total of your bill?'));
+var discountedBill = calculateTotal(luckyNumber, totalBill)
         alert('Your random lucky number was ' + luckyNumber);
-        alert('Your previous total was $' + totalBill);
+        alert('Your previous total was $' + totalBill + ' However with the discount you now have to pay $' + discountedBill);
         // alert(calculateTotal(luckyNumber, totalBill));
-        alert('Your new total is $ ' + calculateTotal(luckyNumber, totalBill));
+        // alert('Your new total is $ ' + calculateTotal(luckyNumber, totalBill));
+        console.log((calculateTotal( luckyNumber, totalBill) + ' Is your new total.'));
 // /**
 //  * TODO:
 //  * Write some JavaScript that uses a `confirm` dialog to ask the user if they
 //  * would like to enter a number. If they click 'Ok', prompt the user for a
 //  * number, then use 3 separate alerts to tell the user:
     var confirm = confirm('Would you like to enter a number?');
-    var number = prompt('Please type a number.');
-    function doStuff(anyNumber) {
-        switch (true) {
-            case (anyNumber % 2 === 0) :
-                alert ('Your number is even.')
-                return
-            case (anyNumber % 2 !== 0) :
-                alert ('Your number is odd.')
-                return
-            case (anyNumber.isNan === false) :
-                alert ('Your number plus 100 is ' + (anyNumber+100))
-                return
-            case (anyNumber > 0 ) :
-                alert ('Your number is positive.')
-                return
-            case (anyNumber < 0 ) :
-                alert ('Your number is negative.')
-                return
-            case (anyNumber = 0 ) :
-                alert ('Your number is neither positive or negative.')
-                return
-            default :
-                alert ('That is not a number!')
-                break;
+    if (confirm) {
+        var number = Number(prompt('Please type a number.'));
+        if (!isNaN(number)) {
+
+
+            if (number % 2 === 0) {
+                alert('Your number is even.')
+            } else {
+                alert('Your number is odd.')
+            }
+            alert('Your number plus 100 is ' + (100 + number))
+
+            var numberPosOrNeg = (number > 0) ? 'positive' : 'negative'
+            alert('Your number is ' + numberPosOrNeg + '.')
+        } else {
+            alert('That is not a number.')
         }
     }
-    confirm + doStuff(number)
-//  * - whether the number is even or odd
-//  * - what the number plus 100 is
-//  * - if the number is negative or positive
-//  *
-//  * if what the user enters is not a number, use an alert to tell them that, and
-//  * do *not* display any of the above information.
-//  *
-//  * Can you refactor your code to use functions?
-//  * HINT: The way we prompt for a value could be improved
-//  */
+    console.log(doStuff(number))
+/*
+  * - whether the number is even or odd
+  * - what the number plus 100 is
+  * - if the number is negative or positive
+  *
+  * if what the user enters is not a number, use an alert to tell them that, and
+  * do *not* display any of the above information.
+  *
+  * Can you refactor your code to use functions?
+  * HINT: The way we prompt for a value could be improved
+  * /
+*/
