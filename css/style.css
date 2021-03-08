@@ -1,4 +1,42 @@
-.fancy-header {
-    color: purple; /* single line comment */
+
+#top {
+    text-align: center;
+}
+
+.header {
     text-decoration: underline;
+    color: chocolate;
+}
+
+body {
+    background-color: beige;
+    font-family: sans-serif;
+    background-image: url("https://rdyar.gitlab.io/background-generator/assets/images/dot-patterns/overlapping-circles-pattern.png");
+}
+
+ul {
+    list-style: square;
+}
+
+table {
+    border: thin solid black;
+    border-collapse: collapse;
+    font-size: x-large;
+}
+
+tr, td {
+    border: thin solid black;
+    padding: 8px;
+}
+
+a:link {
+    color: coral;
+}
+
+a:visited {
+    color:darkblue;
+}
+
+a:hover {
+    color: crimson;
 }
