@@ -1,0 +1,47 @@
+* {box-sizing: border-box;}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: lightskyblue;
+    font-family: Chalkboard, sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2, h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    margin: 0 auto;
+    width: 80%;
+}
+
+.green-box {
+    background: green;
+    height: 1em;
+    width: 2em;
+}
+
+.card {
+    width: 400px;
+    height: 800px;
+    background: white;
+    padding: 1em;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.green-box {
+    background: green;
+    height: 1em;
+    width: 2em;
+}
+
+.border {border: 2px solid black;}
