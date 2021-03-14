@@ -45,3 +45,30 @@ h2, h3 {
 }
 
 .border {border: 2px solid black;}
+
+section {
+    display: flex;
+    align-items: center;
+}
+
+section:nth-of-type(1) {
+    height: 3em;
+    background: lightgreen;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+section:nth-of-type(1) div:last-child {
+    align-self: start;
+}
+
+.purple-box {
+    background: fuchsia;
+    width: 3em;
+    height: 1em;
+}
+
+.purple-box:nth-of-type(1) {
+    display: flex;
+    flex-grow: 2;
+}
