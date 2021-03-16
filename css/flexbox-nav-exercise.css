@@ -1,0 +1,45 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+nav {
+    background: #333333;
+}
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: Verdana;
+    display: inline-block;
+    padding: 1em;
+}
+nav a:hover {
+    background: black;
+}
+nav #first li:nth-child(5) {
+    /*
+        this allows the last flex item to be right justified
+        by filling remaining space to the left of the flex item with margin
+    */
+    margin-left: auto;
+}
+/*#item1 {*/
+/*    padding: 1em;*/
+/*}*/
+/*#item2 {*/
+/*    padding: 1em;*/
+/*}*/
+/*#item3 {*/
+/*    padding: 1em;*/
+/*}*/
+/*#item4 {*/
+/*    padding: 1em;*/
+/*    margin-left: auto;*/
+/*}*/
