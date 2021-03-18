@@ -1,45 +1,70 @@
 * {
     box-sizing: border-box;
+    color: black;
 }
 body {
     margin: 0;
 }
 nav {
     background: #333333;
+    display: flex;
+    justify-content: space-between;
 }
 ul {
     display: flex;
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
 }
 nav a {
     text-decoration: none;
-    color: white;
-    font-family: Verdana;
+    color: black;
     display: inline-block;
     padding: 1em;
 }
 nav a:hover {
-    background: black;
+    background: blue;
+    display: inline-block;
 }
-nav #first li:nth-child(5) {
-    /*
-        this allows the last flex item to be right justified
-        by filling remaining space to the left of the flex item with margin
-    */
-    margin-left: auto;
-}
-/*#item1 {*/
-/*    padding: 1em;*/
-/*}*/
-/*#item2 {*/
-/*    padding: 1em;*/
-/*}*/
-/*#item3 {*/
-/*    padding: 1em;*/
-/*}*/
-/*#item4 {*/
-/*    padding: 1em;*/
+/*nav #first li:nth-child(5) {*/
 /*    margin-left: auto;*/
 /*}*/
+.logo {
+    font-size: 3em;
+    font-family: 'Montserrat', sans-serif;
+    padding: .2em 0;
+    text-align: center;
+    width: 100%;
+    align-content: center;
+    /*position: absolute;*/
+}
+.nav-item {
+    font-family: 'Work Sans', sans-serif;
+
+}
+i {
+    padding: 1em;
+}
+.icon {
+    padding: 0;
+}
+.logo-box {
+    position: absolute;
+    /*right: 500px;*/
+    /*left: 500px;*/
+    /*height: 100%;*/
+    width: 100%;
+}
+.nav1 {
+    margin-right: auto;
+    margin-left: 10px;
+}
+.nav2 {
+    margin-right: 10px;
+    margin-left: auto;
+    font-family: 'Work Sans', sans-serif;
+}
+div:not(.logo) {
+    z-index: 100;
+}
