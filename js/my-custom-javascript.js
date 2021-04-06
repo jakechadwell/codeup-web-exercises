@@ -11,5 +11,15 @@ $(document).ready(function() {
     }, function () {
         $(this).css('color', 'black');
     });
+
+    //making the h2's capitalized:
+
+    $('h2').hover(function() {
+        var value = $(this).html();
+        $(this).html(value.toUpperCase());
+    }, function () {
+        var value = $(this).html();
+        $(this).html(value.toLowerCase());
+    })
 });
 
