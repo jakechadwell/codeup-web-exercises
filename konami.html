@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Konami Code</title>
+</head>
+<body>
+<h1>Konami Code</h1>
+
+<script src="js/jquery-2.2.4.js"></script>
+<script>
+    "use strict";
+
+    $(document).keyup(function(event){
+        console.log(event.keyCode);
+    });
+
+    function konami (fn) {
+        var input = "";
+        var pattern = "3838404037393739666513";
+        $(document).keydown(function(e) {
+            input += e.keyCode;
+            if (input.includes(pattern)) {
+                fn();
+                input = "";
+            }
+        });
+    }
+    $(document).ready(function() {
+        konami(function () {
+            alert('YOU HAVE ADDED 30 LIVES!!')
+        })
+    })
+</script>
+</body>
+</html>
