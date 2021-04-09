@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Store</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+<body class="d-flex flex-column bg-dark text-light">
+<h1 class="text-center">My Tool Store</h1>
+<br>
+<table id="products" class="container border border-light">
+    <thead class="table">
+    <tr class="border">
+        <th class=" w-25">Title</th>
+        <th class=" w-25">Quantity</th>
+        <th class=" w-25">Price</th>
+        <th class=" w-25">Categories</th>
+    </tr>
+    </thead>
+    <tbody id="insertProducts" class=""></tbody>
+    <div class="text-center mb-3">
+    <button id="refresh" class="btn-dark border border-light w-50">Refresh</button>
+    </div>
+    <div id="main">
+
+    </div>
+</table>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+    (function() {
+        "use strict";
+        // TODO: Create an AJAX GET request for the file under data/inventory.json
+        function generateTable(){
+            var myInventory = $.ajax("data/inventory.json");
+
+        myInventory.done(function(data){
+            $.each(data, function(index, info){
+                var data = "";
+                data += "<tr>"
+                data += "<td>" + info.title + "</td>"
+                data += "<td>" + info.quantity + "</td>"
+                data += "<td>" + info.categories + "</td>"
+                data += "<td>" + info.price + "</td>"
+                data += "</tr>"
+                $("#insertProducts").append(data);
+            });
+
+
+        })
+        }
+        generateTable();
+        // TODO: Take the data from inventory.json and append it to the products table
+        //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+        //             its contents and fields
+        //       HINT: You will want to target #insertProducts for your new HTML elements
+
+        $('#refresh').click(function(e){
+            console.log("Refresh button was clicked.");
+            $('#main').html('');
+            generateTable();
+        });
+    })();
+</script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</body>
+</html>
