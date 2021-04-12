@@ -12,49 +12,26 @@ $(document).ready(function (){
     $.get('https://api.openweathermap.org/data/2.5/onecall', {
         lat:32.7555,
         lon:-97.3308,
-        dt: 1618347600,
         appid: OPEN_WEATHER_APPID,
         units: 'imperial',
     }).done(function (results){
-        console.log(results.current);
+        for(var i = 0; i<5 ; i++){
+            var content = "";
+            content += "<h2>" + results.daily[i].humidity + "</h2>"
+            console.log(content);
+            $('.card-header' + i).append(content);
+        }
     })
-    $.get('https://api.openweathermap.org/data/2.5/onecall', {
-        lat:32.7555,
-        lon:-97.3308,
-        dt: 1618434000,
-        appid: OPEN_WEATHER_APPID,
-        units: 'imperial',
-    }).done(function (results){
-        console.log(results.current);
-    })
-    $.get('https://api.openweathermap.org/data/2.5/onecall', {
-        lat:32.7555,
-        lon:-97.3308,
-        dt: 1618520400,
-        appid: OPEN_WEATHER_APPID,
-        units: 'imperial',
-    }).done(function (results){
-        console.log(results.current);
-    })
-    $.get('https://api.openweathermap.org/data/2.5/onecall', {
-        lat:32.7555,
-        lon:-97.3308,
-        dt: 1618606800,
-        appid: OPEN_WEATHER_APPID,
-        units: 'imperial',
-    }).done(function (results){
-        console.log(results.current);
-    })
-    $.get('https://api.openweathermap.org/data/2.5/onecall', {
-        lat:32.7555,
-        lon:-97.3308,
-        dt: 1618693200,
-        appid: OPEN_WEATHER_APPID,
-        units: 'imperial',
-    }).done(function (results){
-        console.log(results.current);
-    })
+
 });
+
+// var weatherRequest = $.ajax('https://api.openweathermap.org/data/2.5/onecall');
+//
+// weatherRequest.done(function (data){
+//     data.forEach(function (current){
+//         if()
+//     })
+// })
 // $(document).ready(function (){
 //     $.get('https://api.openweathermap.org/data/2.5/forecast', {
 //         q: 'Fort Worth, US',
