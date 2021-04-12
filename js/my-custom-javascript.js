@@ -1,6 +1,6 @@
 
 $(document).ready(function() {
-    $('h1').click(function() {
+    $().click(function() {
         $(this).css('background-color', 'rebeccapurple');
     });
     $('p').click(function() {

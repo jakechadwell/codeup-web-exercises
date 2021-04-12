@@ -12,10 +12,19 @@
     <div id='map' class="mt-5 mb-5 container" style='width: 450px; height: 450px;'></div>
     <br>
     <h2 class="text-center text-white font-weight-bold">My favorite restaurants</h2>
-
+    <div class="container text-center text-white">
+        <label for="zoom-select">Select Zoom</label>
+        <select name="zoom" id="zoom-select">
+            <option value="">--Please choose a zoom level--</option>
+            <option id="5" class="zoom" value="5">5</option>
+            <option id="15" class="zoom" value="15">15</option>
+            <option id="20" class="zoom" value="20">20</option>
+        </select>
+    </div>
 
 
 <script src="js/keys.js"></script>
+<script src="js/jquery-2.2.4.js"></script>
 <script src="js/mapbox-geocoder-utils.js"></script>
 <script src="js/mapbox-maps-api.js"></script>
 <!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>-->
