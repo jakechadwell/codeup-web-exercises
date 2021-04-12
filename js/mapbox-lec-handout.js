@@ -43,9 +43,9 @@ var map = new mapboxgl.Map({
 //     .addTo(map)
 
 // TODO TOGETHER: Change the color of the marker
-var marcoMarker = new mapboxgl.Marker({color: "orange"})
-    .setLngLat([-98.4861, 29.4260])
-    .addTo(map)
+// var marcoMarker = new mapboxgl.Marker({color: "orange"})
+//     .setLngLat([-98.4861, 29.4260])
+//     .addTo(map)
 // TODO: Make a new marker! Let's experiment with the color and setting the LngLat [how about a marker for Codeup San Antone? -98.4895, 29.4267 Codeup Dallas? -96.8056, 32.7786]
 // var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple"})
 //     .setLngLat([-98.4861, 29.4260])
@@ -54,9 +54,9 @@ var marcoMarker = new mapboxgl.Marker({color: "orange"})
 //     .setLngLat([-98.4861, 29.4260])
 //     .addTo(map)
 // TODO: Update the marker object to make the marker draggable. *Hint: reference the docs!
-var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: true})
-    .setLngLat([-98.4895, 29.4267])
-    .addTo(map)
+// var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: true})
+//     .setLngLat([-98.4895, 29.4267])
+//     .addTo(map)
 /**********************************************
  * 					POPUPS
  *********************************************/
@@ -74,11 +74,11 @@ var codeupSAMarker = new mapboxgl.Marker({color: "rebeccapurple", draggable: tru
 // codeupSAMarker.setPopup(marcoPopup)
 // TODO TOGETHER: We'll comment out the popup we just added. Next, let's add a popup to the Alamo marker!
 
-var alamoPopup = new mapboxgl.Popup()
-    .setHTML("<p>Remember the Alamo</p>")
-    .addTo(map)
-
-marcoMarker.setPopup(alamoPopup)
+// var alamoPopup = new mapboxgl.Popup()
+//     .setHTML("<p>Remember the Alamo</p>")
+//     .addTo(map)
+//
+// marcoMarker.setPopup(alamoPopup)
 
 
 
@@ -103,41 +103,26 @@ marcoMarker.setPopup(alamoPopup)
 // geocode("8646 Sunny Oaks, San Antonio, Tx", mapboxToken).then(function (results){
 //     console.log(results)
 // })
-
-geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results){
-    console.log(results)
-    map.setCenter(results);
-})
+//
+// geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results){
+//     console.log(results)
+//     map.setCenter(results);
+// })
 
 //TODO: Using the geocode method above, add a marker at Codeup to the map
 
-// geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
-//
-//     var popup = new mapboxgl.Popup()
-//         .setHTML('<h6>Thanks Geocode</h6>')
-//
-//     new mapboxgl.Marker()
-//         .setLngLat(results)
-//         .setPopup(popup)
-//         .addTo(map)
-// })
+geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
+
+    var popup = new mapboxgl.Popup()
+        .setHTML('<h6>Thanks Geocode</h6>')
+
+    new mapboxgl.Marker()
+        .setLngLat(results)
+        .setPopup(popup)
+        .addTo(map)
+})
 
 //TODO: Instead of setCenter try using map.jumpTo()
-
-// geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
-//
-//     var popup = new mapboxgl.Popup()
-//         .setHTML('<h6>Thanks Geocode</h6>')
-//
-//     new mapboxgl.Marker()
-//         .setLngLat(results)
-//         .setPopup(popup)
-//         .addTo(map)
-//
-//     map.jumpTo({center: results})
-// })
-
-//TODO: Instead of setCenter try using map.flyTo()
 
 geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
 
@@ -151,6 +136,21 @@ geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) 
 
     map.flyTo({center: results})
 })
+
+//TODO: Instead of setCenter try using map.flyTo()
+
+// geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
+//
+//     var popup = new mapboxgl.Popup()
+//         .setHTML('<h6>Thanks Geocode</h6>')
+//
+//     new mapboxgl.Marker()
+//         .setLngLat(results)
+//         .setPopup(popup)
+//         .addTo(map)
+//
+//     map.flyTo({center: results})
+// })
 
 // geocode("600 Navarro St, San Antonio, Tx", mapboxToken).then(function (results) {
 //

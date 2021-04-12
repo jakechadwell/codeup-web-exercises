@@ -21,7 +21,9 @@ toggleClassBtn.addEventListener("click", function (e) {
 
     if(targetBox.getAttribute("class") === "toggleClass1"){
         targetBox.setAttribute("class", "toggleClass2");
-    }else if(targetBox.getAttribute("class", "toggleClass2"))
+    }else if(targetBox.getAttribute("class", "toggleClass2")){
+
+    }
 
 
 })
