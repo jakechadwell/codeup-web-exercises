@@ -1,35 +1,48 @@
 "use strict";
+
+    //Run all dis when the page finishes loading
+
 $(document).ready(function () {
-mapboxgl.accessToken = mapboxToken;
-var coord = [32.7555, -97.3308];
-var weatherMap = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/jakechadwell/cknf0f8s64aei17oqvg703v98', // style URL
-    center: [coord[1],coord[0]], // starting position [lng, lat]
-    zoom: 12 // starting zoom
-});
-var mainMarker = new mapboxgl.Marker({color: 'blue', draggable: true})
+    mapboxgl.accessToken = mapboxToken;
+
+    //Creation of the map and defining starting coordinates:
+
+    var coord = [32.7555, -97.3308];
+    var weatherMap = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/jakechadwell/cknf0f8s64aei17oqvg703v98', // style URL
+        center: [coord[1],coord[0]], // starting position [lng, lat]
+        zoom: 12 // starting zoom
+    });
+
+    //Creation of the marker:
+
+    var mainMarker = new mapboxgl.Marker({color: 'blue', draggable: true})
     .setLngLat([coord[1],coord[0]])
     .addTo(weatherMap)
-console.log('displayed map')
-weather()
 
+    //Display weather for starting coordinates:
 
+    weather()
 
+    //Function that gets coordinates of marker on drag end, and then runs the weather function:
 
     function dragEnd() {
         coord = mainMarker.getLngLat();
         coord = [coord.lat, coord.lng];
-        // weatherMap.flyTo({
-        //     center: [coord.lng, coord.lat]
-        // });
         weather()
         console.log(coord);
     }
 
     mainMarker.on('dragend', dragEnd);
 
+    //Function that takes user search input, and displays weather for that location with geocode
 
+    function searchInput() {
+
+    }
+
+    //Defining weather function; gets weather data from api
 
     function weather() {
         $.get('https://api.openweathermap.org/data/2.5/onecall', {
@@ -40,7 +53,7 @@ weather()
         }).done(function (results) {
         console.log(results)
 
-
+    //Inject Html function that uses data from api and "injects" it into the html
 
             function injectHtml(id, data) {
                 var iconcode = data.weather[0].icon;
@@ -54,8 +67,6 @@ weather()
                     console.log(results.features[0].place_name);
                     console.log(place[1] + ", " + place[2]);
                 });
-                // document.getElementById('current-location').appendChild(textNode4)
-
                 document.getElementById("wicon" + id).setAttribute('src', iconurl);
                 document.getElementById(id).children[0].children[0].innerHTML = (new Date(data.dt * 1000)).toDateString()
                 document.getElementById(id).children[1].children[0].innerHTML = "Temp: " + data.temp.min + "&deg;/" + data.temp.max + "&deg;";
@@ -65,6 +76,8 @@ weather()
                 document.getElementById(id).children[1].children[3].children[3].innerHTML = "Pressure " + data.pressure;
 
             }
+
+    //Create cards function loops through each day, as well as each individual card in the html
 
             function createCards() {
                 var apiCallData = results.daily;
