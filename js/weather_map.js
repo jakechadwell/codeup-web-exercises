@@ -39,7 +39,7 @@ $(document).ready(function () {
     //Function that takes user search input, and displays weather for that location with geocode
 
     function searchInput() {
-
+        $('#')
     }
 
     //Defining weather function; gets weather data from api

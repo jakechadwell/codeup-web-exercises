@@ -16,4 +16,6 @@ div > i{
 .input-group {
     display: flex;
     justify-content: center;
+    max-width: fit-content;
 }
+
