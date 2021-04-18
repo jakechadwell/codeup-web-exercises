@@ -15,7 +15,11 @@ div > i{
 }
 .input-group {
     display: flex;
+    flex-direction: row;
     justify-content: center;
     max-width: fit-content;
+}
+.form-control {
+    width: 250px;
 }
 

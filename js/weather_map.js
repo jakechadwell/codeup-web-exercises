@@ -31,18 +31,27 @@ $(document).ready(function () {
         coord = mainMarker.getLngLat();
         coord = [coord.lat, coord.lng];
         weather()
-        console.log(coord);
     }
 
     mainMarker.on('dragend', dragEnd);
 
-    //Function that takes user search input, and displays weather for that location with geocode
+    //Function that takes user search input, and displays weather for that location with geocode after button is clicked:
 
-    function searchInput() {
-        $('#')
+    function userSearch() {
+        let searchInput = $('#form1').val()
+        geocode(searchInput, mapboxToken).then(function (results){
+            console.log(results)
+            if(results===onerror){
+                alert('You have entered an invalid location.')
+            }else {
+                coord = [results[1], results[0]]
+                weather()
+            }
+        })
     }
-
-    //Defining weather function; gets weather data from api
+    $('#submit-btn').on('click', userSearch);
+    
+    //Defining weather function; gets weather data from api:
 
     function weather() {
         $.get('https://api.openweathermap.org/data/2.5/onecall', {
@@ -51,9 +60,8 @@ $(document).ready(function () {
             appid: OPEN_WEATHER_APPID,
             units: 'imperial',
         }).done(function (results) {
-        console.log(results)
 
-    //Inject Html function that uses data from api and "injects" it into the html
+    //Inject Html function that uses data from api and "injects" it into the html:
 
             function injectHtml(id, data) {
                 var iconcode = data.weather[0].icon;
@@ -64,8 +72,6 @@ $(document).ready(function () {
                     });
                     var place = (results.features[0].place_name).split(",")
                     document.getElementById("current-location").innerHTML = "Current Location: " + place[1] + ", " + place[2]
-                    console.log(results.features[0].place_name);
-                    console.log(place[1] + ", " + place[2]);
                 });
                 document.getElementById("wicon" + id).setAttribute('src', iconurl);
                 document.getElementById(id).children[0].children[0].innerHTML = (new Date(data.dt * 1000)).toDateString()
@@ -77,7 +83,7 @@ $(document).ready(function () {
 
             }
 
-    //Create cards function loops through each day, as well as each individual card in the html
+    //Create cards function loops through each day, as well as each individual card in the html:
 
             function createCards() {
                 var apiCallData = results.daily;
@@ -85,36 +91,7 @@ $(document).ready(function () {
                     injectHtml(i, apiCallData[i]);
                 }
             }
-
             createCards();
-
-        })
+        });
     }
-
-})
-
-
-
-
-
-
-
-
-
-
-// var weatherRequest = $.ajax('https://api.openweathermap.org/data/2.5/onecall');
-//
-// weatherRequest.done(function (data){
-//     data.forEach(function (current){
-//         if()
-//     })
-// })
-// $(document).ready(function (){
-//     $.get('https://api.openweathermap.org/data/2.5/forecast', {
-//         q: 'Fort Worth, US',
-//         appid: OPEN_WEATHER_APPID,
-//         units: 'imperial',
-//     }).done(function (results){
-//         console.log(results)
-//     })
-// });
+});
