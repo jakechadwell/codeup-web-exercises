@@ -35,22 +35,24 @@ $(document).ready(function () {
 
     mainMarker.on('dragend', dragEnd);
 
-    //Function that takes user search input, and displays weather for that location with geocode after button is clicked:
+    //Function that takes user search input, and displays weather for that location with geocode after button is clicked, or enter key is hit:
 
     function userSearch() {
         let searchInput = $('#form1').val()
         geocode(searchInput, mapboxToken).then(function (results){
-            console.log(results)
-            if(results===onerror){
-                alert('You have entered an invalid location.')
-            }else {
                 coord = [results[1], results[0]]
                 weather()
-            }
         })
     }
     $('#submit-btn').on('click', userSearch);
-    
+
+    $('.form-control').on('keyup', function (e){
+        if (e.keyCode === 13) {
+            e.preventDefault();
+            userSearch()
+            }
+        })
+
     //Defining weather function; gets weather data from api:
 
     function weather() {
