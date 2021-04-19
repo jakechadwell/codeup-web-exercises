@@ -2,6 +2,8 @@
 
     //Run all dis when the page finishes loading
 
+
+
 $(document).ready(function () {
     mapboxgl.accessToken = mapboxToken;
 
@@ -75,6 +77,7 @@ $(document).ready(function () {
                     var place = (results.features[0].place_name).split(",")
                     document.getElementById("current-location").innerHTML = "Current Location: " + place[1] + ", " + place[2]
                 });
+
                 document.getElementById("wicon" + id).setAttribute('src', iconurl);
                 document.getElementById(id).children[0].children[0].innerHTML = (new Date(data.dt * 1000)).toDateString()
                 document.getElementById(id).children[1].children[0].innerHTML = "Temp: " + data.temp.min + "&deg;/" + data.temp.max + "&deg;";

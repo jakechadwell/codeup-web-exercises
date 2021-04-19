@@ -1,27 +1,79 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>Search</title>
-    <!-- <title>Autocomplete Search Box | CodingNepal</title> -->
-    <link rel="stylesheet" href="searchbar-style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <title>Places Search Box</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="css/searchbar-style.css" />
 </head>
 <body>
-<div class="wrapper">
-    <div class="search-input">
-        <a href="" target="_blank" hidden></a>
-            <input type="text" placeholder="Type to search..">
-        <div class="autocom-box">
-            <!-- here list are inserted from javascript -->
-        </div>
-        <div class="icon"><i class="fas fa-search"></i></div>
-    </div>
-</div>
+<input
+        id="pac-input"
+        class="controls"
+        type="text"
+        placeholder="Search Box"
+/>
+<div id="map"></div>
 
- <script src="js/suggestions.js"></script>
- <script src="js/search-script.js"></script>
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script
+        src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initAutocomplete&libraries=places&v=weekly"
+        async
+></script>
+<script src="js/search-script.js"></script>
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" dir="ltr">-->
+<!--<head>-->
+<!--    <meta charset="utf-8">-->
+<!--    <title>Search</title>-->
+<!--    &lt;!&ndash; <title>Autocomplete Search Box | CodingNepal</title> &ndash;&gt;-->
+<!--    <link rel="stylesheet" href="searchbar-style.css">-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+<!--    <script src="https://kit.fontawesome.com/a076d05399.js"></script>-->
+<!--</head>-->
+<!--<body>-->
+<!--<div class="wrapper">-->
+<!--    <div class="search-input">-->
+<!--        <a href="" target="_blank" hidden></a>-->
+<!--            <input type="text" placeholder="Type to search..">-->
+<!--        <div class="autocom-box">-->
+<!--            &lt;!&ndash; here list are inserted from javascript &ndash;&gt;-->
+<!--        </div>-->
+<!--        <div class="icon"><i class="fas fa-search"></i></div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!-- <script src="js/suggestions.js"></script>-->
+<!-- <script src="js/search-script.js"></script>-->
+
+<!--</body>-->
+<!--</html>-->
