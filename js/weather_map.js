@@ -1,9 +1,5 @@
 "use strict";
 
-    //Run all dis when the page finishes loading
-
-
-
 $(document).ready(function () {
     mapboxgl.accessToken = mapboxToken;
 
