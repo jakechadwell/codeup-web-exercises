@@ -9,13 +9,13 @@
 
 //TODO: console log the results of the above Promise. What is the result?
 
-console.log(pokemonAPI);
+// console.log(pokemonAPI);
 
 //TODO: add a method that runs if the Promise resolves successfully
 
-pokemonAPI.then((response)=>{
-    response.json().then((jsonResponseData)=>console.log(jsonResponseData))
-});
+// pokemonAPI.then((response)=>{
+//     response.json().then((jsonResponseData)=>console.log(jsonResponseData))
+// });
 
 //TODO: add a method that runs if the Promise fails
 
@@ -32,9 +32,9 @@ pokemonAPI.then((response)=>{
 
 var pokemonAPI =  fetch('https://pokeapi.co/api/v2/pokemon')
     .then((response)=>{return response.json()})
-    .then((jsonData)=>{return jsonData.results})
-    .then((results)=>results.forEach(result=>console.log(result.name)));
-
+    // .then((jsonData)=>{return jsonData.results})
+    // .then((results)=>results.forEach(result=>console.log(result.name)));
+console.log(pokemonAPI);
 // TODO: Finally, chain another .then method that would log all of the name properties of the
 //  returned pokemon.
 // BONUS: Is there a way for us to clean up our code?
